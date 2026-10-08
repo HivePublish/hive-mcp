@@ -24,11 +24,11 @@ Use the live connection's tool list and `read_product_knowledge` to establish wh
 
 Available controls include publishing and content planning, Honeycomb automations, Hive Bio, analytics and supported Inbox and workspace operations. Card entry, provider sign-in, credential changes and security challenges use the protected browser handoffs returned by Hive.
 
-The AI client confirms writes. Hive adds exact-action approval when the connection policy requires it, and administration always requires separate Hive approval. The AI cannot approve itself. Private-text access requires the workspace owner's opt-in and redaction rules.
+Writes are marked for confirmation in the AI client. Hive adds exact-action approval when the connection policy requires it, and administration always requires separate Hive approval. The AI cannot approve itself. Private text stays masked by default. A workspace owner or admin must enable both external-AI access and private-body sharing in Inbox privacy settings. Explicit requests for original Inbox text use only the permitted native reveal controls, with the connection's scopes, role checks, confirmation and access audit. Permitted private exports can also contain original information and follow their own scope, access, consent and audit requirements.
 
 ## Versions and updates
 
-This connector package is version 1.1.2. The hosted MCP server, plugin package and marketplace listing have independent versions and approval histories. An app deployment updates the common server after it succeeds; it does not automatically approve a marketplace listing, install a new plugin package or expand existing OAuth grants. Refresh the client's tool discovery after a reconnection or permission change.
+This connector package is version 1.1.3. The hosted MCP server, plugin package and marketplace listing have independent versions and approval histories. An app deployment updates the common server after it succeeds; it does not automatically approve a marketplace listing, install a new plugin package or expand existing OAuth grants. Refresh the client's tool discovery after a reconnection or permission change.
 
 ## Reviewer access
 
