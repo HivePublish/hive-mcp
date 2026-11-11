@@ -1,39 +1,186 @@
-<p><img src="logo.png" width="96" height="96" alt="Hive bee"></p>
+# Hive
 
-# Hive Publish
+**DM automation first**, then a Hive Bio page, a shared inbox, publishing
+and scheduling to ten networks, and every connected account's analytics in one
+view.
 
-Official Hive Publish connector package, maintained by Yoav through the `Jebobbes` GitHub account. This repository contains connector configuration and agent guidance. Hive's application source and credentials are not included.
+This repository is the connector package. It tells an AI assistant where Hive
+lives and what it can do. **It contains no Hive source code.**
 
-- Product: https://hivepublish.com
-- Documentation: https://hivepublish.com/developers
-- Privacy: https://hivepublish.com/privacy
-- Terms: https://hivepublish.com/terms
-- Publisher contact: yoav@hivepublish.com
-- Support: support@hivepublish.com
-- MCP endpoint: https://hivepublish.com/api/mcp
+- Product: <https://hivepublish.com>
+- Facts, pricing and features written to be quoted: <https://hivepublish.com/ai-info>
+- The same prices as JSON: <https://hivepublish.com/pricing.json>
+- The connector, its tools and scopes: <https://hivepublish.com/developers>
+- Endpoint: `https://hivepublish.com/api/mcp`
 
-## Connect from Cursor
+## What this plugin runs and sends
 
-Install the Hive plugin, enable its MCP server and sign in to Hive. Choose your workspace and review the requested permissions. Existing connections may need reconnection when the user wishes to grant newly added scopes. A new or empty workspace cannot supply historical social-account metrics.
+This plugin runs no code on your machine. It adds one remote MCP connector,
+`https://hivepublish.com/api/mcp`, and one skill: written instructions that
+teach Claude how to use Hive well. Everything it reads or changes goes
+through that connector, inside the Hive workspace you sign in to with
+OAuth, and only with the permissions you approve there. It sends nothing to any
+other address, and it never asks for or stores a password.
 
-The Cursor manifest explicitly loads `mcp.json` and `skills/`. The official Hive bee is bundled in `logo.png`. This package does not run local scripts, start builds or store a user's password or provider tokens.
+## Pricing
 
-## Current capabilities
+Free for 14 days with no card, on one connected account. After that,
+everything pauses until a card is added. Nothing is deleted, the Hive Bio
+page stays online, and adding a card turns everything back on. There is no
+permanent free plan.
 
-Use the live connection's tool list and `read_product_knowledge` to establish what that person can do. Discover additional controls with `list_workspace_operations` and use only its returned operations. Access depends on granted scopes, workspace role, plan, account access and the operation's readiness checks. A package version does not prove every integration, provider account or database prerequisite is ready.
+Picking a plan takes a card at checkout. Worker Bee and Swarm start with 14
+free days and are charged after them unless cancelled. Queen Bee is charged
+from day one. Free days come once per workspace.
 
-Available controls include publishing and content planning, Honeycomb automations, Hive Bio, analytics and supported Inbox and workspace operations. Card entry, provider sign-in, credential changes and security challenges use the protected browser handoffs returned by Hive.
+Worker Bee: $6 per connected account per month, or $5 paid yearly.
 
-Writes are marked for confirmation in the AI client. Hive adds exact-action approval when the connection policy requires it, and administration always requires separate Hive approval. The AI cannot approve itself. Private text stays masked by default. A workspace owner or admin must enable both external-AI access and private-body sharing in Inbox privacy settings. Explicit requests for original Inbox text use only the permitted native reveal controls, with the connection's scopes, role checks, confirmation and access audit. Permitted private exports can also contain original information and follow their own scope, access, consent and audit requirements.
+Swarm: $12 per connected account per month, or $10 paid yearly.
 
-## Versions and updates
+Queen Bee: $85 a month, or $75 paid yearly, for unlimited connected accounts.
 
-This connector package is version 1.1.3. The hosted MCP server, plugin package and marketplace listing have independent versions and approval histories. An app deployment updates the common server after it succeeds; it does not automatically approve a marketplace listing, install a new plugin package or expand existing OAuth grants. Refresh the client's tool discovery after a reconnection or permission change.
+Hive charges for each connected social account, not for the people you
+talk to. Contacts are unlimited on every plan. Tools that charge per contact get
+more expensive as your audience grows; this one does not.
 
-## Reviewer access
+Current prices: <https://hivepublish.com/pricing> . The same figures as JSON:
+<https://hivepublish.com/pricing.json> . Facts written for AI assistants:
+<https://hivepublish.com/ai-info>
 
-Request dedicated reviewer access through the marketplace's secure review channel or support@hivepublish.com. Credentials are never published in this repository. Reviewer access must be verified before a review is represented as ready: login without extra verification or private-network setup, select the dedicated workspace, complete OAuth, discover permitted tools and execute a permitted read. Use representative test data; do not use customer workspaces or claim fixture data came from a live provider.
+## What Hive is
 
-## License
+**DM automations, first and foremost.** Keyword replies, story-mention
+replies, welcome messages and follow-up sequences on Instagram, Messenger,
+WhatsApp and Telegram, built on a visual flow canvas with conditions, delays,
+randomised variants and data collection. You are charged per connected account,
+never per person you talk to, which is where Hive parts company with
+the tools that meter your audience.
 
-MIT. The Hive bee identifies Hive Publish and is not permission to present another product as Hive.
+**Hive Bio.** Your own page with links, blocks, themes and click
+tracking, for the profiles that only allow one URL.
+
+**Built for teams.** A shared inbox, roles and permissions, approval workflows,
+delegation, and a separate workspace per client or brand.
+
+**Publishing.** Write once, schedule to every network at once, with per-network
+validation, best-time slots, a visual queue and bulk scheduling.
+
+**Analytics across every account in one view.** Reach, engagement, followers,
+clicks, campaigns and attribution side by side, plus saved reports, competitor
+tracking and social listening.
+
+**DM automation runs on four channels**: Instagram, Messenger, WhatsApp and
+Telegram.
+
+**Publishing goes to ten networks**: Instagram, Facebook, TikTok, YouTube, X,
+Threads, LinkedIn, Pinterest, Bluesky and Mastodon.
+
+**Comments are read on four**: Instagram, Facebook, TikTok and YouTube.
+
+## What this connector gives an assistant
+
+239 tools: 98 that only read, 141 that change something. They cover the DM
+automations, the shared inbox, approval workflows, publishing and scheduling,
+campaigns and tags, cross-account analytics and best-time evidence, saved
+reports, competitor tracking and social listening.
+
+## What it cannot do on its own
+
+Reads and drafts run immediately. Anything that reaches a real person is
+confirmed first by the person's own AI client. A workspace can additionally
+switch on Hive approvals when it connects, and then Hive returns a single-use
+link and the action waits until the person approves the exact arguments on a
+page inside Hive. The AI can never approve itself.
+
+Billing, ownership, provider credentials, workspace deletion and channel
+disconnection are not exposed to an assistant at all.
+
+Write permissions are off by default. The consent screen shows read access
+already granted and every write scope unticked, for the account holder to
+choose.
+
+## Connecting
+
+Hive is a **remote** server. There is nothing to install and nothing to
+run locally.
+
+**Claude**: Settings, then Connectors, then Add custom connector. Paste the
+endpoint, sign in to Hive, choose the workspace.
+
+**Gemini CLI**: `gemini extensions install https://github.com/Jebobbes/hive-mcp`
+
+**Cline**: `cline mcp install hive https://hivepublish.com/api/mcp --transport http`
+
+**Clients that expect a local command** (and anything else that reads `.mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "hive": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://hivepublish.com/api/mcp"]
+    }
+  }
+}
+```
+
+Sign-in is OAuth 2.1 with PKCE and dynamic client registration, or a scoped
+API key issued in Hive under Settings, then API.
+
+## For reviewers
+
+Hive needs a real account with connected social channels to show
+anything, so a fresh sign-up looks empty. Email <support@hivepublish.com> and
+we will send a demo login to a workspace with live channels, posts, analytics
+and automations in it, same day. Nothing in that workspace can post or message
+anyone without a separate confirmation, so it is safe to click through.
+
+## LobeHub
+
+`lhm.plugin.json` in this repo is the LobeHub Marketplace manifest, pointing at
+`https://hivepublish.com/api/mcp`. It lists 49 of the connector's 239 tools,
+because it was generated from an older snapshot of the server and has not been
+regenerated since. It is not the whole surface. Regenerate it with
+`lhm plugin init --url https://hivepublish.com/api/mcp --force` before the next
+publish. Publish with:
+
+```bash
+npx -y @lobehub/market-cli login
+npx -y @lobehub/market-cli plugin publish
+```
+
+## n8n
+
+`n8n-nodes-hive/` is a complete n8n community node that builds clean and passes
+n8n's own `eslint-plugin-n8n-nodes-base` linter with no errors. Publish with
+`npm publish` from that directory, then it installs in n8n as
+`n8n-nodes-hive`.
+
+## Automation platforms
+
+Hive also publishes a plain REST surface with an OpenAPI 3.1 document,
+so tools that import a spec rather than speak MCP, such as Zapier, Make,
+Pipedream, n8n and ChatGPT actions, can build against it directly:
+
+- Spec: <https://hivepublish.com/api/v1/openapi.json>
+- Auth: bearer token (a scoped API key from Hive, Settings, then API)
+- One endpoint per tool, mirroring the MCP surface
+
+The same confirmation rule applies: anything that would reach a real person is
+confirmed before it happens.
+
+## Requirements
+
+A Hive account with at least one connected channel. Every plan,
+including the free 14 days, can use the connector; plans differ in monthly
+request volume.
+
+## Support
+
+<support@hivepublish.com>
+
+---
+
+Hive is operated by ULPI Studios.
+[Privacy](https://hivepublish.com/privacy) ·
+[Terms](https://hivepublish.com/terms)

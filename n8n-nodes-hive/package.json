@@ -1,0 +1,48 @@
+{
+  "name": "n8n-nodes-hive",
+  "version": "1.0.0",
+  "description": "Automate DMs on Instagram, Messenger, WhatsApp and Telegram, then publish to ten networks and analyse, with Hive. Free 14 days, no card, then from $6 per connected account per month.",
+  "keywords": [
+    "n8n-community-node-package",
+    "hive",
+    "social-media",
+    "instagram",
+    "scheduling"
+  ],
+  "license": "MIT",
+  "homepage": "https://hivepublish.com",
+  "author": {
+    "name": "ULPI Studios",
+    "email": "support@hivepublish.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jebobbes/hive-mcp.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && mkdir -p dist/nodes/Hive && cp nodes/Hive/*.svg dist/nodes/Hive/",
+    "lint": "eslint nodes credentials package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/HiveApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Hive/Hive.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "n8n-workflow": "*",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "hive-publish",
+  "displayName": "Hive",
+  "description": "Manage DM automations and Hive Bio, plan and publish social posts, and read results in your connected Hive workspace.",
+  "version": "1.1.8",
+  "homepage": "https://hivepublish.com",
+  "author": {
+    "name": "ULPI Studios",
+    "url": "https://hivepublish.com",
+    "email": "yoav@hivepublish.com"
+  },
+  "keywords": [
+    "social-media",
+    "publishing",
+    "scheduling",
+    "dm-automation",
+    "link-in-bio",
+    "analytics",
+    "hive-publish"
+  ],
+  "license": "MIT",
+  "icon": "./logo.png",
+  "privacyPolicyUrl": "https://hivepublish.com/privacy",
+  "repository": "https://github.com/Jebobbes/hive-mcp",
+  "documentationUrl": "https://hivepublish.com/developers",
+  "supportUrl": "https://hivepublish.com/developers",
+  "termsOfServiceUrl": "https://hivepublish.com/terms",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}
